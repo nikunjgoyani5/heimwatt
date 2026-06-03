@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      If you are serving your web app in a path other than the root, change the
+      href value below to reflect the base path you are serving from.
+
+      The path provided below has to start and end with a slash "/" in order for
+      it to work correctly.
+
+      For more details:
+      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+      This is a placeholder for base href that will be replaced by the value of
+      the `--base-href` argument provided to `flutter build`.
+    -->
+    <base href="$FLUTTER_BASE_HREF">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta content="Heimwatt - solar project" name="description">
+    <meta http-equiv="Content-Type" content="application/pdf">
+    
+    <!-- Open Graph / Facebook / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Heimwatt">
+    <meta property="og:description" content="Heimwatt - solar project">
+    <meta property="og:site_name" content="Heimwatt">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Heimwatt">
+    <meta name="twitter:description" content="Heimwatt - solar project">
+
+    <!-- ⬅️ NEW: allow zooming -->
+    <meta
+            content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+            name="viewport"
+    />
+
+    <!-- iOS meta tags & icons -->
+    <meta content="yes" name="mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="Heimwatt" name="apple-mobile-web-app-title">
+    <link href="icons/Icon-192.png" rel="apple-touch-icon">
+
+    <!-- Favicon -->
+    <link href="favicon.png" rel="icon" type="image/png"/>
+
+    <title>Heimwatt</title>
+    <link href="manifest.json" rel="manifest">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Google Maps JavaScript API - Must load synchronously before Flutter -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQRdjBmH5EAgdmVvCynK_t621G4Qa2-bo&libraries=places"></script>
+</head>
+<body>
+<!-- ⬅️ NEW: let Ctrl+Scroll pass through for browser zoom -->
+<script>
+    window.addEventListener('wheel', function (e) {
+      if (e.ctrlKey) e.stopPropagation();
+    }, { passive: false });
+    
+    // Ensure Google Maps is loaded before Flutter initializes
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+      console.warn('Google Maps API not loaded yet');
+    }
+</script>
+<script async src="flutter_bootstrap.js"></script>
+<script type="module" async>
+    import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.9.155/pdf.min.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.9.155/pdf.worker.min.mjs";
+</script>
+<!-- Force SW update check on load/refresh; reload when new version takes control -->
+<script>
+    if ('serviceWorker' in navigator) {
+      // Reload when a new service worker takes control (after deploy)
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        window.location.reload();
+      });
+      // Force update check on every load/refresh so same-tab refresh gets latest deploy
+      function checkForUpdates() {
+        navigator.serviceWorker.ready.then(function (registration) {
+          registration.update();
+        }).catch(function () {});
+      }
+      checkForUpdates();
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') checkForUpdates();
+      });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "14364658100",
+    "project_id": "heimwatt-staging",
+    "storage_bucket": "heimwatt-staging.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14364658100:android:1f015b1b5d2d02b8d08ae1",
+        "android_client_info": {
+          "package_name": "com.app.heimwatt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg-c_HCIdXaBwpvIq3OwaYHSKGtTVoQhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

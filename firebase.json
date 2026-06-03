@@ -1,0 +1,38 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "heimwatt-staging",
+          "appId": "1:14364658100:android:1f015b1b5d2d02b8d08ae1",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "heimwatt-staging",
+          "configurations": {
+            "android": "1:14364658100:android:1f015b1b5d2d02b8d08ae1",
+            "ios": "1:14364658100:ios:31bb13f651bf9d66d08ae1",
+            "web": "1:14364658100:web:06ea360ac5caf8f5d08ae1"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "site" : "project-photo-upload-staging",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

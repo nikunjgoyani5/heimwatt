@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "heimwatt-staging",
+    "firebase storage:rules:set cors.json": "heimwatt-staging"
+  },
+  "targets": {},
+  "etags": {}
+}
